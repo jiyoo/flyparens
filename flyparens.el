@@ -2,6 +2,9 @@
 
 ;; Author: Jisang Yoo
 ;; Created: 2014-06-28
+;; Version: 0.5
+;; EmacsWiki:
+;; Github:
 ;; Keywords: faces, convenience, lisp, matching, parentheses, parens
 
 
@@ -84,7 +87,7 @@ Value of priority property for overlay for first mismatched paren or brace."
 
 
 (defun flyparens-default-function (position)
-  "Displays an overlay (using `flyparens-mismatch-face') over the first mismatch if any, but cleans up otherwise."
+  "Displays an overlay (using `flyparens-mismatch-face') over POSITION if any, but cleans up otherwise."
   (if position
       (move-overlay flyparens--global-overlay
                     position (1+ position) (current-buffer))
@@ -92,8 +95,10 @@ Value of priority property for overlay for first mismatched paren or brace."
                   0 0 (current-buffer))))
 
 (defun flyparens-highlight (position)
+  "Highlight POSITION with `flyparens-function'."
   (funcall flyparens-function position))
 (defun flyparens-unhighlight ()
+  "Clean up with `flyparens-function'."
   (funcall flyparens-function nil))
 
 
@@ -120,6 +125,7 @@ Value of priority property for overlay for first mismatched paren or brace."
       (flyparens-unhighlight))))
 
 (defun flyparens--internal ()
+  "Update display."
   (when flyparens-mode
     ;; partly from check-parens
     (when (eq
