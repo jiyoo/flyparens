@@ -57,8 +57,7 @@
   "Check parens."
   :group 'faces)
 
-;; value of 0.5 is taken from idle-highlight-idle-time of idle-highlight-mode.el
-(defcustom flyparens-delay 0.5
+(defcustom flyparens-delay 0.3
   "Time (in seconds) after which to check parens."
   :group 'flyparens
   :type 'float)
