@@ -97,22 +97,7 @@ Value of priority property for overlay for first mismatched paren or brace."
 (defun flyparens-unhighlight ()
   (funcall flyparens-function nil))
 
-(defun flyparens--internal ()
-  (when flyparens-mode
-    ;; partly from check-parens
-    (when (eq
-           (condition-case data
-               (progn
-                 ;; Buffer can't have more than (point-max) sexps.
-                 (scan-sexps (point-min) (point-max))
-                 :no-error-rus5oyso)
-             (scan-error
-              (flyparens-highlight (nth 2 data)))
-             ;; (error
-             ;;  (warn "(ejv5cxmy) Strange."))
-             )
-           :no-error-rus5oyso)
-      (flyparens-unhighlight))))
+
 
 (define-minor-mode flyparens-mode
   "FlyParens Minor Mode"
@@ -135,6 +120,22 @@ Value of priority property for overlay for first mismatched paren or brace."
       ;; cleans things up.
       (flyparens-unhighlight))))
 
+(defun flyparens--internal ()
+  (when flyparens-mode
+    ;; partly from check-parens
+    (when (eq
+           (condition-case data
+               (progn
+                 ;; Buffer can't have more than (point-max) sexps.
+                 (scan-sexps (point-min) (point-max))
+                 :no-error-rus5oyso)
+             (scan-error
+              (flyparens-highlight (nth 2 data)))
+             ;; (error
+             ;;  (warn "(ejv5cxmy) Strange."))
+             )
+           :no-error-rus5oyso)
+      (flyparens-unhighlight))))
 
 (provide 'flyparens)
 ;;; flyparens.el ends here
