@@ -15,6 +15,8 @@ Alternatively, you can just run the following command to find the first mismatch
 
 That command is an Emacs built-in. FlyParens is essentially an on-the-fly wrapper on that command.
 
+See [this demo gif](http://i.imgur.com/lF7je7M.gif) to see a demonstration of FlyParens. The demo also goes into how mismatched parens could arise.
+
 # Recommended configuration for beginners
 
 Install the package and then copy the code from [flyparens-config-example-1.el](./flyparens-config-example-1.el) and paste it in your emacs init file.
