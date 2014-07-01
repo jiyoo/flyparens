@@ -1,6 +1,6 @@
 # flyparens.el
 
-FlyParens provides a minor mode called `flyparens-mode` which checks for unbalanced parens (a.k.a. parentheses) (or braces) on the fly in Lisp code and highlights the first mismatched paren, whether it be at point or not. Also, you can customize to make it tell you whether or not the parens in the buffer are balanced, via text cursor color or other means.
+FlyParens provides a minor mode called `flyparens-mode` which checks for unbalanced parens (a.k.a. parentheses) (or braces) on the fly in Lisp code and highlights the first mismatched paren, whether it be at point or not. Also, you can customize to make it tell you whether or not the parens in the buffer are balanced, via text cursor color or other means. This means that whenever you accidentally introduce mismatched parens, you get notified instantly, and so you get to do something about it immediately rather than fix parens at a much later time. For example, you could simply undo (`M-x undo`) on the spot and you also get to know which habit tend to introduce mismatched parens.
 
 If you are a beginner, then this package is for you, and you are encouraged to think of this package as a training wheel and eventually move on to paredit.
 
