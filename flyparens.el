@@ -1,4 +1,4 @@
-;;; flyparens.el --- check for unbalanced parens on the fly
+;;; flyparens.el --- Check for unbalanced parens on the fly
 
 ;; Author: Jisang Yoo
 ;; Created: 2014-06-28
@@ -58,7 +58,7 @@
 
 (defgroup flyparens nil
   "Check parens."
-  :group 'faces)
+  :group 'paren-matching)
 
 (defcustom flyparens-delay 0.3
   "Time (in seconds) after which to check parens."
@@ -66,8 +66,7 @@
   :type 'float)
 
 (defface flyparens-mismatch-face
-  '((((background light)) (:background "red"))
-    (((background dark)) (:background "red")))
+  '(((t (:inherit 'error))))
   "Face for first mismatched paren or brace."
   :group 'flyparens)
 
@@ -102,9 +101,9 @@ Value of priority property for overlay for first mismatched paren or brace."
   (funcall flyparens-function nil))
 
 
-
+;;;###autoload
 (define-minor-mode flyparens-mode
-  "FlyParens Minor Mode"
+  " FlyParens"
   :group 'flyparens
   (progn
     (when (and flyparens-mode
@@ -120,7 +119,7 @@ Value of priority property for overlay for first mismatched paren or brace."
                    'face 'flyparens-mismatch-face)
       (overlay-put flyparens--global-overlay
                    'priority flyparens-mismatch-overlay-priority))
-    (when (not flyparens-mode)
+    (unless flyparens-mode
       ;; cleans things up.
       (flyparens-unhighlight))))
 
