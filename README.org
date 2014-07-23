@@ -2,7 +2,6 @@
 :PROPERTIES:
 :EXPORT_OPTIONS: toc:0
 :END:
-
 ** flyparens.el
 
 FlyParens provides a minor mode called ~flyparens-mode~ which checks for unbalanced parens (a.k.a. parentheses) (or braces) on the fly in Lisp code and highlights the first mismatched paren, whether it be at point or not. Also, you can customize to make it tell you whether or not the parens in the buffer are balanced, via text cursor color or other means. This means that whenever you accidentally introduce mismatched parens, you get notified instantly, and so you get to do something about it immediately rather than fix parens at a much later time. For example, you could simply undo (~M-x undo~) on the spot and you also get to know which habit tend to introduce mismatched parens.
@@ -30,6 +29,11 @@ Users well versed in elisp may customize flyparens-function in more radical ways
 ** Limitations
 
 Only one mismatched paren in only one buffer (current buffer) is highlighted.
+
+** Other packages to look into
++ [[http://elpa.gnu.org/packages/flylisp.html][Flylisp]] (Color unbalanced parentheses and parentheses inconsistent with indentation)
+
+Flylisp colors mismatched open paren (coloring mismatched close paren is planned) and since it relies on propertize-region, it is fast in large buffers. Flyparens on the other hand relies on checking the whole buffer and given the recommended config, it notifies you of occurrence of mismatched parens not on screen. (Mismatched parens outside of the visible area can occur when the user invokes C-k while paredit is not on.)
 
 ** Inspired by
 

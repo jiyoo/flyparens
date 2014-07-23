@@ -29,6 +29,12 @@ Users well versed in elisp may customize flyparens-function in more radical ways
 
 Only one mismatched paren in only one buffer (current buffer) is highlighted.
 
+# Other packages to look into
+
+-   [Flylisp](http://elpa.gnu.org/packages/flylisp.html) (Color unbalanced parentheses and parentheses inconsistent with indentation)
+
+Flylisp colors mismatched open paren (coloring mismatched close paren is planned) and since it relies on propertize-region, it is fast in large buffers. Flyparens on the other hand relies on checking the whole buffer and given the recommended config, it notifies you of occurrence of mismatched parens not on screen. (Mismatched parens outside of the visible area can occur when the user invokes C-k while paredit is not on.)
+
 # Inspired by
 
 The idle-highlight-mode package and the check-parens command
